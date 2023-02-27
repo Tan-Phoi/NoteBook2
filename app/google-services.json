@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "608297475213",
+    "project_id": "notebook-2ab54",
+    "storage_bucket": "notebook-2ab54.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608297475213:android:9fe71e2fd98af431c496c4",
+        "android_client_info": {
+          "package_name": "com.phoint.notebook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608297475213-71p78pqsuiodk9ui8odq4nhdliq951ug.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.phoint.notebook",
+            "certificate_hash": "16507acf248aef5c8a6cbdf0cb012c35c884d30e"
+          }
+        },
+        {
+          "client_id": "608297475213-22ubtl4r67gnv61h1dit4t3ejp7hqgev.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCn8apSfUfir0onYwTprS_B73cDklGNO9U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "608297475213-22ubtl4r67gnv61h1dit4t3ejp7hqgev.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

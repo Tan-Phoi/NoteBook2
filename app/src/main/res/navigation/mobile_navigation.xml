@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/splashFragment">
+
+    <fragment
+        tools:layout="@layout/fragment_splash"
+        android:id="@+id/splashFragment"
+        android:name="com.phoint.notebook.ui.splash.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.phoint.notebook.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home" >
+        <action
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_homeFragment_to_insertNoteFragment"
+            app:destination="@id/insertNoteFragment" />
+        <action
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_homeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_login"
+        android:id="@+id/loginFragment"
+        android:name="com.phoint.notebook.ui.login.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_loginFragment_to_createAccountFragment"
+            app:destination="@id/createAccountFragment" />
+        <action
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_create_account"
+        android:id="@+id/createAccountFragment"
+        android:name="com.phoint.notebook.ui.createAccount.CreateAccountFragment"
+        android:label="CreateAccountFragment" >
+        <action
+            app:popUpTo="@id/createAccountFragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_createAccountFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_insert_note"
+        android:id="@+id/insertNoteFragment"
+        android:name="com.phoint.notebook.ui.insertNote.InsertNoteFragment"
+        android:label="InsertNoteFragment" >
+        <action
+            app:popUpTo="@id/insertNoteFragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_insertNoteFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+</navigation>
