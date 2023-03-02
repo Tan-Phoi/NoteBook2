@@ -23,8 +23,6 @@
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home" >
         <action
-            app:popUpTo="@id/homeFragment"
-            app:popUpToInclusive="true"
             android:id="@+id/action_homeFragment_to_insertNoteFragment"
             app:destination="@id/insertNoteFragment" />
         <action

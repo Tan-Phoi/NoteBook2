@@ -1,5 +1,6 @@
 package com.phoint.notebook.ui.base
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -38,4 +39,5 @@ abstract class BaseFragment<T : ViewDataBinding, M : BaseViewModel> : DaggerFrag
         viewModel = ViewModelProvider(this, viewModelFactory)[viewModelClass()]
         initView()
     }
+
 }

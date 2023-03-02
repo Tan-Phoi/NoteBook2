@@ -16,6 +16,8 @@ class HomeViewModel @Inject constructor(
     private val localRepository: LocalRepository
 ) : BaseViewModel() {
     var noteList = MutableLiveData<List<NoteBook>>()
+    var userId: Int? = null
+
     init {
         getJoinData()
     }
@@ -25,5 +27,9 @@ class HomeViewModel @Inject constructor(
             val note = localRepository.getJoinData()
                 noteList.postValue(note)
         }
+    }
+    // function to set user id
+    fun setUserId(id: Int) {
+        userId = id
     }
 }

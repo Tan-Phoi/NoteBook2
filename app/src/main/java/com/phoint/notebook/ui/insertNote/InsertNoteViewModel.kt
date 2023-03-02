@@ -1,5 +1,6 @@
 package com.phoint.notebook.ui.insertNote
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.phoint.notebook.data.local.LocalRepository
@@ -13,17 +14,19 @@ class InsertNoteViewModel @Inject constructor(
     private val localRepository: LocalRepository
 ) : BaseViewModel() {
     var doneNote = MutableLiveData<Boolean>()
-    var idList = MutableLiveData<NoteBook>()
+    var userId: Int? = null
+
     init {
 
     }
-
     fun insertNote(noteBook: NoteBook){
         viewModelScope.launch(Dispatchers.IO){
-            val id = localRepository.getID()
             localRepository.insertNote(noteBook)
-                idList.postValue(id)
                 doneNote.postValue(true)
         }
+    }
+
+    fun setUserId(id: Int) {
+        userId = id
     }
 }

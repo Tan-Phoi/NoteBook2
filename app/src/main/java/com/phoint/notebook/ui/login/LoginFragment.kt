@@ -1,6 +1,8 @@
 package com.phoint.notebook.ui.login
 
 import android.app.Activity
+import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -18,9 +20,11 @@ import com.phoint.notebook.R
 import com.phoint.notebook.data.local.model.User
 import com.phoint.notebook.databinding.FragmentLoginBinding
 import com.phoint.notebook.ui.base.BaseFragment
+import com.phoint.notebook.ui.home.HomeFragment
 import com.phoint.notebook.util.setOnSingClickListener
 
 class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
+
 //    private var mGoogleSignInClient : GoogleSignInClient? = null
 //    private val startForResultGoogle = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result : ActivityResult ->
 //        if (result.resultCode == Activity.RESULT_OK){
@@ -57,6 +61,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
     }
 
     override fun initView() {
+
+
 //        setupGoogle()
         binding.tvCreateLogin.setOnSingClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_createAccountFragment)
@@ -67,18 +73,23 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
             val password = binding.edtPassword.text.toString().trim()
 
             if (email.isNotEmpty() && password.isNotEmpty()){
-                viewModel.getAllEmailPassword(email, password)
+                viewModel.getUserByUsernameAndPassword(email, password)
             }else {
                 Toast.makeText(requireContext(), "Vui lòng nhập tài khoản", Toast.LENGTH_SHORT).show()
             }
         }
 
-        viewModel.doneLoginUser.observe(this){
-            if (it == true){
-                viewModel.userCheck.observe(this){
-                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment, bundleOf(
-                        Pair("id", it)
-                    ))
+
+        viewModel.doneLoginUser.observe(this){ boolean ->
+            if (boolean == true){
+                viewModel.loggedInUserId.observe(this){ loggedInUserId ->
+                    viewModel.setUserId(loggedInUserId ?: -1)
+
+                    val bundle = Bundle().apply {
+                        putInt("id", viewModel.userId ?: -1)
+                    }
+
+                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment, bundle)
                 }
             }else {
                 Toast.makeText(requireContext(), "Sai tài khoản", Toast.LENGTH_SHORT).show()

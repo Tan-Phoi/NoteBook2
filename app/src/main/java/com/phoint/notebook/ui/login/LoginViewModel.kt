@@ -1,8 +1,11 @@
 package com.phoint.notebook.ui.login
 
+import android.os.Bundle
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.phoint.notebook.R
 import com.phoint.notebook.data.local.LocalRepository
 import com.phoint.notebook.data.local.model.User
 import com.phoint.notebook.ui.base.BaseViewModel
@@ -13,12 +16,21 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(
     private val localRepository: LocalRepository
 ) : BaseViewModel() {
-    //var doneUserGoogle = MutableLiveData<Boolean>()
+    private var _loggedInUserId = MutableLiveData<Int>()
+    val loggedInUserId : LiveData<Int> = _loggedInUserId
+    var userId: Int? = null
     var doneLoginUser = MutableLiveData<Boolean>()
-    var userCheck = MutableLiveData<User>()
+
+    //var userCheck = MutableLiveData<User>()
+    //var doneUserGoogle = MutableLiveData<Boolean>()
+
 
     init {
 
+    }
+
+    fun setUserId(id: Int) {
+        userId = id
     }
 
 //    fun insertUserGoogle(account: GoogleSignInAccount){
@@ -41,15 +53,16 @@ class LoginViewModel @Inject constructor(
 //        }
 //    }
 
-    fun getAllEmailPassword(email : String, password : String) {
+     fun getUserByUsernameAndPassword(email : String, password : String) {
         viewModelScope.launch(Dispatchers.IO){
-            val user = localRepository.getAllEmailPassword(email, password)
+            val user = localRepository.getUserByUsernameAndPassword(email, password)
             if (user != null){
-                userCheck.postValue(user)
+                _loggedInUserId.postValue(user.idUser)
                 doneLoginUser.postValue(true)
             } else {
                 doneLoginUser.postValue(false)
             }
         }
     }
+
 }

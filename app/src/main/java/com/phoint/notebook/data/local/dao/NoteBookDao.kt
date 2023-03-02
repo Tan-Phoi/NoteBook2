@@ -12,9 +12,6 @@ interface NoteBookDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertNote(noteBook: NoteBook)
 
-    @Query("SELECT * FROM notebook WHERE user_id")
-    suspend fun getID(): NoteBook
-
     @Query("SELECT * FROM user INNER JOIN notebook ON user_id = notebook.user_id")
     suspend fun getJoinData() : List<NoteBook>
 }

@@ -22,8 +22,8 @@ class LocalRepository @Inject constructor(
         userDao.insertUser(user)
     }
 
-    suspend fun getAllEmailPassword(email: String, password : String) : User{
-        return userDao.getAllEmailPassword(email, password)
+    suspend fun getUserByUsernameAndPassword(email: String, password : String) : User{
+        return userDao.getUserByUsernameAndPassword(email, password)
     }
 
 //...............................................................................
@@ -32,10 +32,6 @@ class LocalRepository @Inject constructor(
 
     suspend fun insertNote(noteBook: NoteBook){
         noteBookDao.insertNote(noteBook)
-    }
-
-    suspend fun getID() : NoteBook{
-        return noteBookDao.getID()
     }
 
     suspend fun getJoinData() : List<NoteBook>{
