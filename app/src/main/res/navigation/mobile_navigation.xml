@@ -23,13 +23,21 @@
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_insertNoteFragment"
-            app:destination="@id/insertNoteFragment" />
-        <action
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true"
             android:id="@+id/action_homeFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_homeFragment_to_updateUserFragment"
+            app:destination="@id/updateUserFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_userProfileFragment"
+            app:destination="@id/userProfileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_insertNoteFragment"
+            app:destination="@id/insertNoteFragment" />
     </fragment>
     <fragment
         tools:layout="@layout/fragment_login"
@@ -37,8 +45,6 @@
         android:name="com.phoint.notebook.ui.login.LoginFragment"
         android:label="LoginFragment" >
         <action
-            app:popUpTo="@id/loginFragment"
-            app:popUpToInclusive="true"
             android:id="@+id/action_loginFragment_to_createAccountFragment"
             app:destination="@id/createAccountFragment" />
         <action
@@ -46,6 +52,11 @@
             app:popUpToInclusive="true"
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
     </fragment>
     <fragment
         tools:layout="@layout/fragment_create_account"
@@ -68,5 +79,54 @@
             app:popUpToInclusive="true"
             android:id="@+id/action_insertNoteFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_update_note"
+        android:id="@+id/updateUserFragment"
+        android:name="com.phoint.notebook.ui.updateNote.UpdateNoteFragment"
+        android:label="UpdateUserFragment" >
+        <action
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/updateUserFragment"
+            android:id="@+id/action_updateUserFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        tools:layout="@layout/fragment_forgot_password"
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.phoint.notebook.ui.forgotPassword.ForgotPasswordFragment"
+        android:label="ForgotPasswordFragment" >
+
+        <action
+            app:popUpTo="@id/forgotPasswordFragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_forgotPasswordFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        tools:layout="@layout/fragment_user_profile"
+        android:id="@+id/userProfileFragment"
+        android:name="com.phoint.notebook.ui.userProfile.UserProfileFragment"
+        android:label="UserProfileFragment" >
+        <action
+            android:id="@+id/action_userProfileFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_userProfileFragment_to_changeAccountPasswordFragment"
+            app:destination="@id/changeAccountPasswordFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_change_account_password"
+        android:id="@+id/changeAccountPasswordFragment"
+        android:name="com.phoint.notebook.ui.changeAccountPassword.ChangeAccountPasswordFragment"
+        android:label="ChangeAccountPasswordFragment" >
+        <action
+            android:id="@+id/action_changeAccountPasswordFragment_to_userProfileFragment"
+            app:destination="@id/userProfileFragment" />
+        <action
+            android:id="@+id/action_changeAccountPasswordFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
 </navigation>

@@ -4,5 +4,8 @@
         <attr name="action_bar_title" format="string"/>
         <attr name="action_bar_src_left" format="reference"/>
         <attr name="action_bar_src_right" format="reference"/>
+        <attr name="action_bar_enable_src_left" format="boolean"/>
+        <attr name="action_bar_enable_src_right" format="boolean"/>
+        <attr name="action_bar_menu" format="reference" />
     </declare-styleable>
 </resources>

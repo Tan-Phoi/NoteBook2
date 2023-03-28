@@ -6,47 +6,70 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.insertNote.InsertNoteFragment"
-        android:background="#FFF9F2">
+        android:background="@drawable/background">
 
         <com.phoint.notebook.ui.widget.ActionBarViewBinding
             android:id="@+id/abvNote"
+            app:action_bar_enable_src_right="true"
+            app:action_bar_enable_src_left="true"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            app:action_bar_title="DataTime"
+            app:action_bar_title="New notebook"
             tools:ignore="MissingConstraints" />
 
         <EditText
-            android:background="@drawable/shape_edit_text_login"
-            android:textColor="#000000"
-            android:textSize="14sp"
-            android:padding="8dp"
+            android:elevation="14dp"
             android:id="@+id/edtTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:hint="Enter title"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/abvNote" />
-
-        <EditText
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/background"
+            android:hint="Title"
+            android:padding="8dp"
             android:textColor="#000000"
             android:textSize="14sp"
-            android:background="@drawable/shape_edit_text_login"
-            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDateTime" />
+
+        <EditText
             android:id="@+id/edtNoteTask"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:hint="task note..."
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/background"
+            android:elevation="14dp"
+            android:gravity="left"
+            android:hint="\t..."
+            android:paddingBottom="200dp"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edtTitle" />
+
+        <TextView
+            android:id="@+id/tvDateTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            tools:text="Time"
+            android:textColor="#5C5C5C"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/abvNote" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

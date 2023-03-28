@@ -9,7 +9,7 @@ import com.phoint.notebook.data.local.model.User
 
 @Database(
     entities = [User::class, NoteBook::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class LocalDatabase : RoomDatabase() {

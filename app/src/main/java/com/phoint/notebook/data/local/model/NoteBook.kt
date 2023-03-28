@@ -5,20 +5,25 @@ import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.Calendar
+import java.util.Date
 
 @Entity(tableName = "notebook")
 class NoteBook() : Parcelable{
     @PrimaryKey
     var idNote : Int? = null
     @ColumnInfo(name ="user_id")
-    var userOwnerID : Int? = null
+    var userOwnerID : String? = null
+    @ColumnInfo(name ="title_note")
     var titleNote : String? = null
+    @ColumnInfo(name ="task_note")
     var taskNote : String? = null
+    @ColumnInfo(name ="date_time_note")
     var dateTimeNote : String? = null
 
     constructor(parcel: Parcel) : this() {
         idNote = parcel.readValue(Int::class.java.classLoader) as? Int
-        userOwnerID = parcel.readValue(Int::class.java.classLoader) as? Int
+        userOwnerID = parcel.readString()
         titleNote = parcel.readString()
         taskNote = parcel.readString()
         dateTimeNote = parcel.readString()
@@ -26,7 +31,7 @@ class NoteBook() : Parcelable{
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeValue(idNote)
-        parcel.writeValue(userOwnerID)
+        parcel.writeString(userOwnerID)
         parcel.writeString(titleNote)
         parcel.writeString(taskNote)
         parcel.writeString(dateTimeNote)
@@ -45,4 +50,5 @@ class NoteBook() : Parcelable{
             return arrayOfNulls(size)
         }
     }
+
 }

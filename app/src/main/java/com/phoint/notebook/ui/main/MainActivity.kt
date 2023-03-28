@@ -1,7 +1,5 @@
 package com.phoint.notebook.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import com.phoint.notebook.R
 import com.phoint.notebook.databinding.ActivityMainBinding
 import com.phoint.notebook.ui.base.BaseActivity

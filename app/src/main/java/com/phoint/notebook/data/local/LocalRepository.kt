@@ -1,5 +1,6 @@
 package com.phoint.notebook.data.local
 
+import android.provider.ContactsContract.CommonDataKinds.Note
 import androidx.lifecycle.LiveData
 import com.phoint.notebook.data.local.dao.NoteBookDao
 import com.phoint.notebook.data.local.dao.UserDao
@@ -14,8 +15,8 @@ class LocalRepository @Inject constructor(
     private val noteBookDao: NoteBookDao
 ) {
 // User
-    suspend fun getAllUserEmail(email : String) : User{
-         return userDao.getAllUserEmail(email)
+    suspend fun getGoogleEmailUser(email : String) : User{
+         return userDao.getGoogleEmailUser(email)
     }
 
     suspend fun insertUser(user: User){
@@ -26,6 +27,17 @@ class LocalRepository @Inject constructor(
         return userDao.getUserByUsernameAndPassword(email, password)
     }
 
+    suspend fun updateUser(user: User){
+        userDao.updateUser(user)
+    }
+
+    suspend fun getUserData(id : String) : User{
+        return userDao.getUserId(id)
+    }
+
+    suspend fun getEmailAndPassword(email: String, password: String) : User{
+        return userDao.getEmailAndPassword(email, password)
+    }
 //...............................................................................
 
 // NoteBook
@@ -34,8 +46,20 @@ class LocalRepository @Inject constructor(
         noteBookDao.insertNote(noteBook)
     }
 
-    suspend fun getJoinData() : List<NoteBook>{
-        return noteBookDao.getJoinData()
+    suspend fun getJoinData(userId : String) : List<NoteBook>{
+        return noteBookDao.getJoinData(userId)
+    }
+
+    suspend fun updateNote(noteBook: NoteBook){
+        noteBookDao.updateNote(noteBook)
+    }
+
+    suspend fun searchNotebooks(searchQuery : String) : List<NoteBook>{
+        return noteBookDao.searchNotebooks("%$searchQuery%")
+    }
+
+    suspend fun deleteNote(id : Int){
+         noteBookDao.deleteNote(id)
     }
 }
 

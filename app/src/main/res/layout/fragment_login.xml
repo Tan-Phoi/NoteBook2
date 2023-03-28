@@ -6,9 +6,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.login.LoginFragment"
-        android:background="#FFF9F2">
+        android:background="@drawable/background">
 
         <ImageView
+            android:elevation="14dp"
             android:id="@+id/imageView"
             android:layout_width="240dp"
             android:layout_height="240dp"
@@ -21,21 +22,24 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:gravity="top"
+            android:elevation="14dp"
             android:id="@+id/textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="34dp"
+            android:layout_marginTop="36dp"
             android:layout_marginEnd="16dp"
+            android:gravity="top"
             android:text="You already have an account associated with this email address."
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <EditText
+            android:elevation="14dp"
             android:id="@+id/edtPassword"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -45,7 +49,7 @@
             android:background="@drawable/shape_edit_text_login"
             android:ems="10"
             android:hint="Enter password"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             android:padding="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -53,6 +57,7 @@
             app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
 
         <TextView
+            android:elevation="14dp"
             android:textSize="14sp"
             android:id="@+id/tvForgotPassword"
             android:layout_width="wrap_content"
@@ -61,7 +66,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:text="Forgot password?"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -69,6 +74,8 @@
             app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
 
         <TextView
+            android:textAllCaps="true"
+            android:elevation="14dp"
             android:gravity="center"
             android:padding="14dp"
             android:id="@+id/btnLoginIn"
@@ -87,14 +94,15 @@
             app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
 
         <TextView
+            android:elevation="14dp"
             android:id="@+id/tvCreateLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="22dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="215dp"
             android:text="Sign up with different email"
-            android:textColor="#000000"
+            android:textColor="#FDFDFD"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -102,6 +110,7 @@
             app:layout_constraintTop_toBottomOf="@+id/btnLoginGoogle" />
 
         <EditText
+            android:elevation="14dp"
             android:hint="Enter email"
             android:id="@+id/edtEmail"
             android:layout_width="0dp"
@@ -118,24 +127,53 @@
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 
-        <TextView
-            android:drawablePadding="8dp"
-            android:padding="8dp"
+        <androidx.cardview.widget.CardView
+            android:elevation="14dp"
+            app:cardCornerRadius="14dp"
             android:id="@+id/btnLoginGoogle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/shape_button_login"
-            android:gravity="center"
-            android:text="LogIn Google"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnLoginIn"
-            app:drawableLeftCompat="@drawable/ic_google" />
+            app:layout_constraintTop_toBottomOf="@+id/btnLoginIn">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="46dp">
+
+                <ImageView
+                    android:id="@+id/img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:gravity="center"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_google"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Google"
+                    android:textAllCaps="true"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

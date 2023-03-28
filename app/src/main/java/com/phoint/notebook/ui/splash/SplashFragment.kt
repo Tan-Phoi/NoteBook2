@@ -3,7 +3,6 @@ package com.phoint.notebook.ui.splash
 import androidx.navigation.fragment.findNavController
 import android.os.Handler
 import android.os.Looper
-import androidx.fragment.app.Fragment
 import com.phoint.notebook.R
 import com.phoint.notebook.databinding.FragmentSplashBinding
 import com.phoint.notebook.ui.base.BaseFragment

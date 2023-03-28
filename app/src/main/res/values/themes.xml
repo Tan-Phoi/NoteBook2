@@ -24,4 +24,8 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:textColorHint">@color/white</item>
     </style>
+
+    <style name="Circular">
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

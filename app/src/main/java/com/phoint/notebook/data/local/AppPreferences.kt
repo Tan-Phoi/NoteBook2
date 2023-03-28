@@ -6,11 +6,24 @@ import javax.inject.Singleton
 
 @Singleton
 class AppPreferences @Inject constructor(private val preferences: SharedPreferences) {
-    fun saveName(name: String) {
-        preferences.edit().putString("name", name).apply()
+    companion object{
+        private const val USER_ID_KEY = "user_id_key"
+        private const val NOTE_ID_KEY = "note_id_key"
     }
 
-    fun getName(): String {
-        return preferences.getString("name", "Nguyễn Đức Dũng") ?: ""
+    fun saveUserId(userId : String){
+        preferences.edit().putString(USER_ID_KEY, userId).apply()
+    }
+
+    fun getUserId() : String{
+        return preferences.getString(USER_ID_KEY, "") ?: ""
+    }
+
+    fun saveNoteId(noteId : Int){
+        preferences.edit().putInt(NOTE_ID_KEY, noteId).apply()
+    }
+
+    fun getNoteId() : Int{
+        return preferences.getInt(NOTE_ID_KEY, 0) ?: 0
     }
 }

@@ -2,37 +2,47 @@ package com.phoint.notebook.data.local.model
 
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "user")
 class User() : Parcelable{
     @PrimaryKey
-    var idUser : Int? = null
+    @ColumnInfo(name = "id_user")
+    var idUser : String = ""
     var nameUser : String? = null
+    var phoneUser : String? = null
+    var addressUser : String? = null
+    @ColumnInfo(name = "email_user")
     var emailUser : String? = null
+    @ColumnInfo(name = "password_user")
     var passwordUser : String? = null
-    var confirmPasswordUser : String? = null
     var imgUrlUser : String? = null
+    var dateOfBirthUser : String? = null
     var tokenUser : String? = null
 
     constructor(parcel: Parcel) : this() {
-        idUser = parcel.readValue(Int::class.java.classLoader) as? Int
+        idUser = parcel.readString().toString()
         nameUser = parcel.readString()
+        phoneUser = parcel.readString()
+        addressUser = parcel.readString()
         emailUser = parcel.readString()
         passwordUser = parcel.readString()
-        confirmPasswordUser = parcel.readString()
         imgUrlUser = parcel.readString()
+        dateOfBirthUser = parcel.readString()
         tokenUser = parcel.readString()
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeValue(idUser)
+        parcel.writeString(idUser)
         parcel.writeString(nameUser)
+        parcel.writeString(phoneUser)
+        parcel.writeString(addressUser)
         parcel.writeString(emailUser)
         parcel.writeString(passwordUser)
-        parcel.writeString(confirmPasswordUser)
         parcel.writeString(imgUrlUser)
+        parcel.writeString(dateOfBirthUser)
         parcel.writeString(tokenUser)
     }
 
